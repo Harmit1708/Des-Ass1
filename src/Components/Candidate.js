@@ -43,7 +43,7 @@ function Candidate(props) {
     var handleSubmit = async (values) => {
       values["state"] = state;
       let res = await axios.post(
-        "http://localhost:5000/users/addcandidate",
+        "https://des-ass.herokuapp.com/users/addcandidate",
         values
       );
       if (res.data.statusCode === 200) {
@@ -55,7 +55,7 @@ function Candidate(props) {
     handleSubmit = async (values) => {
       values["state"] = state;
       let res = await axios.put(
-        "http://localhost:5000/users/editcandidate/" + context?.otherData?._id,
+        "https://des-ass.herokuapp.com/users/editcandidate/" + context?.otherData?._id,
         values
       );
       if (res.data.statusCode === 200) {
