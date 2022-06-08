@@ -26,7 +26,7 @@ function Home() {
         },
       };
       let res = await axios.post(
-        "https://des-ass.herokuapp.com/users/auth",
+        "http://localhost:5000/users/auth",
         {
           Purpose: "Approve",
         },
@@ -45,7 +45,7 @@ function Home() {
   let [data, setData] = useState([]);
 
   let getData = async () => {
-    let res = await axios.get("https://des-ass.herokuapp.com/users/candidate");
+    let res = await axios.get("http://localhost:5000/users/candidate");
     setData(res.data.user);
   };
 
@@ -55,7 +55,7 @@ function Home() {
 
   let handleRemove = async (e) => {
     let res = await axios.delete(
-      "https://des-ass.herokuapp.com/users/removecandidate/" + e._id
+      "http://localhost:5000/users/removecandidate/" + e._id
     );
     console.log(res);
     getData();
