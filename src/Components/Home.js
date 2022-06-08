@@ -45,7 +45,7 @@ function Home() {
   let [data, setData] = useState([]);
 
   let getData = async () => {
-    let res = await axios.get("https://des-ass.herokuapp.com/candidate");
+    let res = await axios.get("https://des-ass.herokuapp.com/users/candidate");
     setData(res.data.user);
   };
 
