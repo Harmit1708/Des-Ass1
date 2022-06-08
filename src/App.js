@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Signin from './Components/Signin';
+import Signup from './Components/Signup';
+import Home from './Components/Home'
+import React, {  useState } from 'react';
+
+export const newContext = React.createContext();
 function App() {
+
+  let [otherData,setOtherData] = useState();
+  const [otherModalShow, setOtherModalShow] = React.useState(false);
+  let [boolTrue,setBoolTrue] = React.useState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <newContext.Provider value={{otherData,setOtherData,otherModalShow,setOtherModalShow,boolTrue,setBoolTrue}}>
+      <Routes>
+        <Route path="/" element={<Signin/>}/>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/signin" element={<Signin/>}/>
+        <Route path="/signup" element={<Signup/>}/>
+      </Routes>
+    </newContext.Provider>
+    </BrowserRouter>
   );
 }
 
